@@ -28,6 +28,6 @@ jobs:
     # - run: npm test
     - run: git push
 
-    - run: echo ${{env.DOCKER_TOKEN}} | docker login -u ${{secrets.DOCKERHUB_USERNAME}} -p ${{secrets.DOCKERHUB_PASSWORD}}
+    - run: echo ${{env.DOCKER_TOKEN}} | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
     - run: docker build . --file Dockerfile --tag sandilembatha/country-app-ui:latest
     - run: docker push sandilembatha/country-app-ui
