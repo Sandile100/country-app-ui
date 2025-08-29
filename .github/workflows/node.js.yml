@@ -15,6 +15,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      env:
+          DOCKER_TOKEN: ${{ env.DOCKER_TOKEN }}
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
@@ -28,6 +30,6 @@ jobs:
     # - run: npm test
     - run: git push
 
-    - run: echo ${{env.DOCKER_TOKEN}} | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
+    - run: echo $DOCKER_TOKEN | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
     - run: docker build . --file Dockerfile --tag sandilembatha/country-app-ui:latest
     - run: docker push sandilembatha/country-app-ui
