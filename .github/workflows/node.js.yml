@@ -10,22 +10,20 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  Docker:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        version: 22
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    - run: git push
+
+    - run: echo ${{secrets.DOCKERHUB_PASSWORD}} | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
+    - run: docker build . --file Dockerfile --tag sandilembatha/country-app-ui:latest
+    - run: docker push sandilembatha/country-app-ui
