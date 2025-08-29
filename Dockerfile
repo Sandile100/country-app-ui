@@ -1,2 +1,2 @@
 FROM nginx
-COPY dist /usr/sharenginx/html
+COPY build /usr/share/nginx/html
