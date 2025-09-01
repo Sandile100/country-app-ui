@@ -1,3 +1,7 @@
-FROM nginx
-COPY build /usr/share/nginx/html
-ENTRYPOINT ["/bin/sh", "-c" , "npm ci && npm start"]
+FROM node:18-alpine
+WORKDIR /app
+COPY package.json .
+RUN npm install
+COPY ..
+EXPOSE 3000
+CMD [ "npm", "run", "dev" ]
