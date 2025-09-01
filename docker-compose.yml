@@ -1,0 +1,22 @@
+version: "2.4"
+
+services:
+  frontend:
+    image: sandilembatha/country-app-ui
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    environment:
+     NODE_ENV: development
+    stdin_open: true
+    tty: true
+    command: bash -c "npm ci && npm start"
+
+  backend:
+    image: sandilembatha/country-app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+   
