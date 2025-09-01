@@ -1,16 +1,3 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
 # About
 
 This is a NodeJS React application that integrates with Spring boot API to serve country details. Its a two page app with a landing page being a list of all the countries. You can click on the country for mor details like population and Capital which is served on a 2nd page.
