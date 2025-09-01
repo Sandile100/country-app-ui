@@ -10,8 +10,7 @@ services:
       NODE_ENV: development
     ports:
       - "3000:3000"
-    stdin_open: true
-    tty: true
+ 
 
   backend:
     image: sandilembatha/country-app
