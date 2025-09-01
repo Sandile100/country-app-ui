@@ -15,6 +15,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 This is a NodeJS React application that integrates with Spring boot API to serve country details. Its a two page app with a landing page being a list of all the countries. You can click on the country for mor details like population and Capital which is served on a 2nd page.
 
+For convience a search functionality has been added on the landing page to speedup finding the country of interest
+
 # Build
 
 To build the app GitHub actions is used, where few steps, like packaging and testing are ran. From this public GitHub repository : https://github.com/Sandile100/country-app-ui
